@@ -1,18 +1,111 @@
-.container {
-    font-family: Arial, sans-serif;
-
+body {
+    background-color: #f4f4f9;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #4CAF50;
 }
 
 .calculator-input {
     display: flex;
-    gap: 16px;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
 .large-input {
-    width: 600px;
-    height: 80px; /* Adjust height as needed */
-    font-size: 30px; /* Adjust font size as needed */
+    width: 100%;
+    max-width: 600px;
+    height: 60px;
+    font-size: 1.5em;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.my-button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.my-button:hover {
+    background-color: #45a049;
+}
+
+.previous-calculations {
+    margin-top: 30px;
+    text-align: left;
+    width: 100%;
+}
+
+.previous-calculations h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+ul.no-bullets {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul.no-bullets li {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul.no-bullets li button {
+    background-color: #ff6666;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+ul.no-bullets li button:hover {
+    background-color: #ff4c4c;
+}
+
+.info-text {
+    margin-top: 30px;
+    font-size: 1.2em;
+    color: #666;
 }

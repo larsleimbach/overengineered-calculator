@@ -1,14 +1,30 @@
-<div class="container">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overengineered Calculator</title>
 
-    <h1>Overengineered Calculator</h1>
+</head>
+<body>
+    <div class="container">
+        <h1>Overengineered Calculator</h1>
 
-    <form class="calculator-input">
+        <form class="calculator-input">
+            <input type="text" name="textInput" id="textInput" class="large-input" (input)="calculate()">
+        </form>
 
-        <input type="text" name="textInput" id="textInput" class="large-input" (input)="calculate()">
+        <h3>Result: {{ result }}</h3>
+        <button class="my-button" (click)="save_calculation()">Save Calculation</button>
 
-    </form>
+        <div class="previous-calculations">
+            <h2>Previous Calculations</h2>
+            <ul #listContainer class="no-bullets">
+                <!-- List items will be appended here by JavaScript -->
+            </ul>
+        </div>
 
-    <h3>Result: {{ result }}</h3>
-
-</div>
-
+        <p class="info-text">This calculator knows:<br>The answer to the ultimate question of life, the universe, and everything</p>
+    </div>
+</body>
+</html>
