@@ -22,8 +22,6 @@ public class CalculatorService {
                 // deltes last result
                 return "";
             }
-            // System.out.println(request.getText());
-
             if ("The answer to the ultimate question of life, the universe, and everything".equals(request.getText())) {
                 return "42";
             }
@@ -31,7 +29,6 @@ public class CalculatorService {
             String result_str = Double.toString(result);
             return result_str;
         } catch (Exception e) {
-            // e.printStackTrace();
             return "No correct mathematical equation";
         }
     }

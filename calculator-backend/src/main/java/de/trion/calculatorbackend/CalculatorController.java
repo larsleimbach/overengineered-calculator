@@ -22,7 +22,6 @@ public class CalculatorController {
     @PostMapping("/message")
     public ResponseEntity<String> receiveMessage(@RequestBody CalculationRequest message) {
         // Process the message
-        // System.out.println("\nReceived message: " + message.getText());
         String reponse = calculatorService.calculate(message);
         return ResponseEntity.ok(reponse);
     }

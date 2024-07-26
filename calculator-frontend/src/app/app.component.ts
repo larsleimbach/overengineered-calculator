@@ -26,18 +26,21 @@ export class AppComponent implements AfterViewInit{
         this.loadPreCalculation();
     }
 
-    
-
+        
+    /**
+     * Load previous, saved calculation from the backend
+     */
     loadPreCalculation(): void {
+        // get all saved calculation from backend
         this.calculatorService.getAllPreviousCalculations().subscribe(data => {
-          this.previousCalculations = data.reverse();
-          
-          const listContainer = this.listContainer.nativeElement;
-          // empty list
-          while (listContainer.firstChild) {
+            this.previousCalculations = data.reverse();
+            
+            const listContainer = this.listContainer.nativeElement;
+            // empty the list
+            while (listContainer.firstChild) {
             listContainer.removeChild(listContainer.firstChild);
-          }
-          this.previousCalculations.forEach(calculation => {
+            }
+            this.previousCalculations.forEach(calculation => {
                 const listItem = document.createElement('li');
                 listItem.textContent = `${calculation.text}`;
 
@@ -51,7 +54,7 @@ export class AppComponent implements AfterViewInit{
                 // Append the button to the body or any other container
                 listItem.appendChild(button);
                 listContainer.appendChild(listItem);
-          });
+            });
         });
     }
     /**
@@ -65,7 +68,10 @@ export class AppComponent implements AfterViewInit{
           this.result = response;
         });
     }
-
+    /**
+     * Deletes calculation in backend
+     * @param id: int, backend id that should be delted
+     */
     deleteCalculation(id: number | undefined): void {
         if(id){
             this.calculatorService.deleteCalculation(id).subscribe(() => {
@@ -77,15 +83,15 @@ export class AppComponent implements AfterViewInit{
             console.log("ID is",id,"-> delete operation not possible.")
         }
     }
-
+    /**
+     * Saves the current calculation to the MySQL database
+     */
     save_calculation() {
         const result_num = parseFloat(this.result)
-        // console.log("result",this.result,"conversion result",result_num)
         if(!isNaN(result_num) || this.result == "The answer to the ultimate question of life, the universe, and everything" ){
             // result is a number
             let text = (document.getElementById('textInput') as HTMLInputElement).value;
             const message: CalculationRequest = { text: text + " = " + this.result };
-            // console.log("message:",message)
             // send to backend
             this.calculatorService.saveCalculation(message).subscribe(response => {
                 // renew list
